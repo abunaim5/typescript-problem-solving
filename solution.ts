@@ -24,3 +24,9 @@ class Person {
         return `'Name: ${this.name}, Age: ${this.age}'`;
     };
 };
+
+const filterByRating = (items: Array<{ title: string; rating: number }>): Array<{ title: string; rating: number }> => {
+    const newArr: Array<{ title: string; rating: number }> = items.filter(item => item.rating >= 4);
+
+    return newArr;
+};
