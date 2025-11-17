@@ -30,3 +30,9 @@ const filterByRating = (items: Array<{ title: string; rating: number }>): Array<
 
     return newArr;
 };
+
+const filterActiveUsers = (users: Array<{ id: number; name: string; email: string; isActive: boolean }>): Array<{ id: number; name: string; email: string; isActive: boolean }> => {
+    const activeUsers = users.filter(user => user.isActive);
+
+    return activeUsers;
+};
