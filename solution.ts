@@ -26,9 +26,9 @@ class Person {
 };
 
 const filterByRating = (items: Array<{ title: string; rating: number }>): Array<{ title: string; rating: number }> => {
-    const newArr: Array<{ title: string; rating: number }> = items.filter(item => item.rating >= 4);
+    const highlyRated: Array<{ title: string; rating: number }> = items.filter(item => item.rating >= 4 && item.rating <= 5);
 
-    return newArr;
+    return highlyRated;
 };
 
 const filterActiveUsers = (users: Array<{ id: number; name: string; email: string; isActive: boolean }>): Array<{ id: number; name: string; email: string; isActive: boolean }> => {
