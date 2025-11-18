@@ -49,3 +49,36 @@ const printBookDetails = (book: Book) => {
 
     console.log(`Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${isAvailable ? 'Yes' : 'No'}`);
 };
+
+const getUniqueValues = (arr1: (string | number)[], arr2: (string | number)[]): (string | number)[] => {
+    const uniqueArr: (string | number)[] = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+        const currentValue = arr1[i];
+        let isExist = false;
+
+        for (let j = 0; j < uniqueArr.length; j++) {
+            if (uniqueArr[j] === currentValue) {
+                isExist = true;
+                break;
+            };
+        };
+
+        if (!isExist) uniqueArr[uniqueArr.length] = currentValue;
+    };
+
+    for (let x = 0; x < arr2.length; x++) {
+        const currentValue = arr2[x];
+        let isExist = false;
+
+        for (let y = 0; y < uniqueArr.length; y++) {
+            if (uniqueArr[y] === currentValue) {
+                isExist = true;
+            };
+        };
+
+        if (!isExist) uniqueArr[uniqueArr.length] = currentValue;
+    }
+
+    return uniqueArr;
+};
