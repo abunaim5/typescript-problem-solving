@@ -82,3 +82,23 @@ const getUniqueValues = (arr1: (string | number)[], arr2: (string | number)[]): 
 
     return uniqueArr;
 };
+
+const calculateTotalPrice = (products: Array<{ name: string; price: number; quantity: number; discount?: number }>): number => {
+    if (!products.length) return 0;
+
+    const totalPrice = products.reduce((total, product) => {
+        const { price, quantity, discount } = product;
+        const basePrice = price * quantity;
+
+        if (discount && discount > 0) {
+            const discountedPrice = basePrice - (basePrice * discount) / 100;
+            total += discountedPrice;
+        } else {
+            total += basePrice;
+        }
+
+        return total;
+    }, 0);
+
+    return totalPrice;
+};
